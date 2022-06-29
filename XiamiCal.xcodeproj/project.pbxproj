@@ -11,6 +11,7 @@
 		2265294B286C17DC003895F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265294A286C17DC003895F2 /* ContentView.swift */; };
 		2265294D286C17DE003895F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2265294C286C17DE003895F2 /* Assets.xcassets */; };
 		22652950286C17DE003895F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2265294F286C17DE003895F2 /* Preview Assets.xcassets */; };
+		22859F3C286C409500F0031D /* DateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F3B286C409500F0031D /* DateCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,8 @@
 		2265294C286C17DE003895F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2265294F286C17DE003895F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22652951286C17DE003895F2 /* XiamiCal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XiamiCal.entitlements; sourceTree = "<group>"; };
+		22652957286C1839003895F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		22859F3B286C409500F0031D /* DateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +55,10 @@
 		22652947286C17DC003895F2 /* XiamiCal */ = {
 			isa = PBXGroup;
 			children = (
+				22652957286C1839003895F2 /* Info.plist */,
 				22652948286C17DC003895F2 /* XiamiCalApp.swift */,
 				2265294A286C17DC003895F2 /* ContentView.swift */,
+				22859F3B286C409500F0031D /* DateCalculator.swift */,
 				2265294C286C17DE003895F2 /* Assets.xcassets */,
 				22652951286C17DE003895F2 /* XiamiCal.entitlements */,
 				2265294E286C17DE003895F2 /* Preview Content */,
@@ -139,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22859F3C286C409500F0031D /* DateCalculator.swift in Sources */,
 				2265294B286C17DC003895F2 /* ContentView.swift in Sources */,
 				22652949286C17DC003895F2 /* XiamiCalApp.swift in Sources */,
 			);
@@ -274,6 +280,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = XiamiCal/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,6 +308,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = XiamiCal/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
