@@ -12,6 +12,9 @@
 		2265294D286C17DE003895F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2265294C286C17DE003895F2 /* Assets.xcassets */; };
 		22652950286C17DE003895F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2265294F286C17DE003895F2 /* Preview Assets.xcassets */; };
 		22859F3C286C409500F0031D /* DateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F3B286C409500F0031D /* DateCalculator.swift */; };
+		22859F3E286D113A00F0031D /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F3D286D113A00F0031D /* CalendarHeader.swift */; };
+		22859F40286D1A1200F0031D /* Zodiacs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F3F286D1A1200F0031D /* Zodiacs.swift */; };
+		22859F42286D1CB600F0031D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F41286D1CB600F0031D /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		22652951286C17DE003895F2 /* XiamiCal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XiamiCal.entitlements; sourceTree = "<group>"; };
 		22652957286C1839003895F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		22859F3B286C409500F0031D /* DateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculator.swift; sourceTree = "<group>"; };
+		22859F3D286D113A00F0031D /* CalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
+		22859F3F286D1A1200F0031D /* Zodiacs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zodiacs.swift; sourceTree = "<group>"; };
+		22859F41286D1CB600F0031D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +63,11 @@
 			children = (
 				22652957286C1839003895F2 /* Info.plist */,
 				22652948286C17DC003895F2 /* XiamiCalApp.swift */,
+				22859F3D286D113A00F0031D /* CalendarHeader.swift */,
+				22859F41286D1CB600F0031D /* CalendarView.swift */,
 				2265294A286C17DC003895F2 /* ContentView.swift */,
 				22859F3B286C409500F0031D /* DateCalculator.swift */,
+				22859F3F286D1A1200F0031D /* Zodiacs.swift */,
 				2265294C286C17DE003895F2 /* Assets.xcassets */,
 				22652951286C17DE003895F2 /* XiamiCal.entitlements */,
 				2265294E286C17DE003895F2 /* Preview Content */,
@@ -145,7 +154,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				22859F3C286C409500F0031D /* DateCalculator.swift in Sources */,
+				22859F40286D1A1200F0031D /* Zodiacs.swift in Sources */,
+				22859F42286D1CB600F0031D /* CalendarView.swift in Sources */,
 				2265294B286C17DC003895F2 /* ContentView.swift in Sources */,
+				22859F3E286D113A00F0031D /* CalendarHeader.swift in Sources */,
 				22652949286C17DC003895F2 /* XiamiCalApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
