@@ -32,7 +32,7 @@ struct CalendarView: View {
   let displayDate: Date!
   let onDaySelected: ((Date) -> Void)!
 
-  func displayDateComponents() -> [DateComponents] {
+  private func displayDateComponents() -> [DateComponents] {
     let calendar = Calendar.current
     let displayComps = calendar.dateComponents([.year, .month], from: displayDate)
     let range = calendar.range(of: .day, in: .month, for: displayDate)!
@@ -77,9 +77,62 @@ struct CalendarView: View {
     return dateComps
   }
 
-  func lunarDateComponent(solarDateComp: DateComponents) -> DateComponents {
+  private func lunarDateComponent(solarDateComp: DateComponents) -> DateComponents {
     let calendar = Calendar.init(identifier: .chinese)
     return calendar.dateComponents([.year, .month, .day], from: Calendar.current.date(from: solarDateComp) ?? Date())
+  }
+
+  private func constellationForDate(month: Int, day: Int) -> String {
+    let mmdd = month * 100 + day;
+    var result = ""
+
+    if ((mmdd >= 321 && mmdd <= 331) ||
+        (mmdd >= 401 && mmdd <= 419)) {
+      result = "白羊座"
+    } else if ((mmdd >= 420 && mmdd <= 430) ||
+               (mmdd >= 501 && mmdd <= 520)) {
+      result = "金牛座"
+    } else if ((mmdd >= 521 && mmdd <= 531) ||
+               (mmdd >= 601 && mmdd <= 621)) {
+      result = "双子座"
+    } else if ((mmdd >= 622 && mmdd <= 630) ||
+               (mmdd >= 701 && mmdd <= 722)) {
+      result = "巨蟹座"
+    } else if ((mmdd >= 723 && mmdd <= 731) ||
+               (mmdd >= 801 && mmdd <= 822)) {
+      result = "狮子座"
+    } else if ((mmdd >= 823 && mmdd <= 831) ||
+               (mmdd >= 901 && mmdd <= 922)) {
+      result = "处女座"
+    } else if ((mmdd >= 923 && mmdd <= 930) ||
+               (mmdd >= 1001 && mmdd <= 1023)) {
+      result = "天秤座"
+    } else if ((mmdd >= 1024 && mmdd <= 1031) ||
+               (mmdd >= 1101 && mmdd <= 1122)) {
+      result = "天蝎座"
+    } else if ((mmdd >= 1123 && mmdd <= 1130) ||
+               (mmdd >= 1201 && mmdd <= 1221)) {
+      result = "射手座"
+    } else if ((mmdd >= 1222 && mmdd <= 1231) ||
+               (mmdd >= 101 && mmdd <= 119)) {
+      result = "摩羯座"
+    } else if ((mmdd >= 120 && mmdd <= 131) ||
+               (mmdd >= 201 && mmdd <= 218)) {
+      result = "水瓶座"
+    } else if ((mmdd >= 219 && mmdd <= 229) ||
+               (mmdd >= 301 && mmdd <= 320)) {
+      result = "双鱼座"
+    }
+    return result
+  }
+
+
+  private func gridHelpText(month: Int, day: Int, lunarMonth: Int, lunarDay: Int) -> String {
+    let solar = "阳历：\(month)月\(day)日"
+    let constellation = "星座：\(constellationForDate(month: month, day: day))"
+    let lunar = "农历：\(lunarMonths[lunarMonth - 1])\(lunarDays[lunarDay - 1])"
+
+    return "\(solar)\n\(constellation)\n\(lunar)"
   }
 
   var body: some View {
@@ -134,7 +187,9 @@ struct CalendarView: View {
               .opacity(item.isSameMonth(displayDate) ? 1 : 0.3)
           }.onTapGesture {
             onDaySelected(Calendar.current.date(from: item) ?? today)
-          }.help("农历\(lunarMonths[lunarMonth - 1])\(lunarDays[lunarDay - 1])")
+          }.help(
+            gridHelpText(month: item.month!, day: item.day!, lunarMonth: lunarMonth, lunarDay: lunarDay)
+          )
         }
       }
     }

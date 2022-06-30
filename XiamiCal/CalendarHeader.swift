@@ -58,7 +58,9 @@ struct CalendarHeader: View {
           Image(systemName: "chevron.left")
         }.buttonStyle(PlainButtonStyle())
 
-        Text("\(displayComps.year ?? 2022) 年 \(displayComps.month ?? 6) 月".replacingOccurrences(of: ",", with: ""))
+        let month = displayComps.month ?? 6
+        let monthPrefix = month < 10 ? "0" : ""
+        Text("\(displayComps.year ?? 2022) 年 \(monthPrefix)\(month) 月".replacingOccurrences(of: ",", with: ""))
           .font(Font.title3)
           .bold()
 
