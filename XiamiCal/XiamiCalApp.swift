@@ -9,10 +9,6 @@ struct XiamiCalApp: App {
   private var delegate
 
   var body: some Scene {
-    //    WindowGroup {
-    //      ContentView()
-    //    }
-
     Settings {
       EmptyView()
     }
@@ -22,12 +18,14 @@ struct XiamiCalApp: App {
 class AppDelegate: NSObject, NSApplicationDelegate {
   var statusItem: NSStatusItem?
   var popOver = NSPopover()
+  var contentView: ContentView!
 
   func applicationDidFinishLaunching(_ notification: Notification) {
     popOver.behavior = .transient
     popOver.animates = false
     popOver.contentViewController = NSViewController()
-    popOver.contentViewController?.view = NSHostingView(rootView: ContentView())
+    contentView = ContentView(state: .init())
+    popOver.contentViewController?.view = NSHostingView(rootView: contentView)
     popOver.contentViewController?.view.window?.makeKey()
 
     statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -44,6 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       popOver.performClose(sender)
     } else if let itemButton = statusItem?.button {
       NSApp.activate(ignoringOtherApps: true)
+      contentView.initState()
       popOver.show(relativeTo: itemButton.bounds, of: itemButton, preferredEdge: NSRectEdge.minY)
     }
   }

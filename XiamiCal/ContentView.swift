@@ -3,17 +3,27 @@
 
 import SwiftUI
 
+class ContentViewState: ObservableObject {
+  @Published var calculatorShowing = false
+  @Published var today = Date()
+  @Published var displayDate = Date()
+  @Published var selectedDate = Date()
+}
+
 struct ContentView: View {
   private let calendar = Calendar.current
 
-  @State private var calculatorShowing = false
-  @State private var displayDate = Date()
-  @State private var selectedDate = Date()
+  @ObservedObject var state: ContentViewState
+
+  func initState(){
+    state.calculatorShowing = false
+    state.today = Date()
+    state.displayDate = Date()
+    state.selectedDate = Date()
+  }
 
   var body: some View {
-    let today = Date()
-
-    let displayComps = calendar.dateComponents([.year, .month], from: displayDate)
+    let displayComps = calendar.dateComponents([.year, .month], from: state.displayDate)
 
     VStack {
       ZStack(alignment: Alignment.center) {
@@ -25,53 +35,48 @@ struct ContentView: View {
           TianganDizhi(displayYear: displayYear)
 
           CalendarHeader(
-            displayDate: displayDate,
-            today: today,
-            onBackToToday: { displayDate = today },
+            displayDate: state.displayDate,
+            today: state.today,
+            onBackToToday: { state.displayDate = state.today },
             onYearAdded: { v in
-              displayDate = calendar.date(byAdding: .year, value: v, to: displayDate) ?? displayDate
+              state.displayDate = calendar.date(byAdding: .year, value: v, to: state.displayDate) ?? state.displayDate
             },
             onMonthAdded: { v in
-              displayDate = calendar.date(byAdding: .month, value: v, to: displayDate) ?? displayDate
+              state.displayDate = calendar.date(byAdding: .month, value: v, to: state.displayDate) ?? state.displayDate
             }
           ).padding(Edge.Set.bottom, 10)
 
           CalendarView(
-            today: today,
-            selectedDate: selectedDate,
-            displayDate: displayDate
+            today: state.today,
+            selectedDate: state.selectedDate,
+            displayDate: state.displayDate
           ) { date in
-            selectedDate = date
+            state.selectedDate = date
           }
         }
       }
-
+      
       Divider()
 
       HStack{
-        Label("日期计算", systemImage: calculatorShowing ? "chevron.up" : "chevron.down")
+        Label("日期计算", systemImage: state.calculatorShowing ? "chevron.up" : "chevron.down")
           .labelStyle(.titleAndIcon)
 
-//        if calculatorShowing {
-//          Image(systemName: "chevron.up")
-//        } else {
-//          Image(systemName: "chevron.down")
-//        }
       }.padding(Edge.Set.bottom, 10)
         .onTapGesture {
-          calculatorShowing.toggle()
+          state.calculatorShowing.toggle()
         }
 
-      if calculatorShowing {
-        DateCalculator(startDate: selectedDate)
+      if state.calculatorShowing {
+        DateCalculator(startDate: state.selectedDate)
       }
-    }.padding(Edge.Set.top, calculatorShowing ? 35 : 19)
-      .padding(Edge.Set.bottom, calculatorShowing ? 35 : 10)
+    }.padding(Edge.Set.top, state.calculatorShowing ? 35 : 19)
+      .padding(Edge.Set.bottom, state.calculatorShowing ? 35 : 10)
   }
 }
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    ContentView(state: .init())
   }
 }
