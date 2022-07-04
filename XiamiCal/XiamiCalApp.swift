@@ -32,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     if let itemButton = statusItem?.button {
-      itemButton.image = NSImage(systemSymbolName: "alarm", accessibilityDescription: nil)
+      itemButton.image = NSImage(named: NSImage.Name("MenuIcon"))
       //itemButton.imagePosition = NSControl.ImagePosition.imageLeft
       //itemButton.title = "TigaCal"
       itemButton.action = #selector(itemButtonToggle)
