@@ -30,7 +30,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     if let itemButton = statusItem?.button {
-      itemButton.image = NSImage(named: NSImage.Name("MenuIcon"))
+      let icon = NSImage(named: NSImage.Name("MenuIcon"))?.tint(color: NSColor.controlTextColor)
+      icon?.isTemplate = true // reactive tint color.
+      itemButton.image = icon
       //itemButton.imagePosition = NSControl.ImagePosition.imageLeft
       //itemButton.title = "TigaCal"
       itemButton.action = #selector(itemButtonToggle)
