@@ -49,21 +49,21 @@ struct ContentView: View {
       Divider()
 
       HStack{
-        Label("日期计算", systemImage: "calendar.badge.plus")
+        Label("日期计算", systemImage: calculatorShowing ? "chevron.up" : "chevron.down")
           .labelStyle(.titleAndIcon)
 
-        if calculatorShowing {
-          Image(systemName: "chevron.up")
-        } else {
-          Image(systemName: "chevron.down")
-        }
+//        if calculatorShowing {
+//          Image(systemName: "chevron.up")
+//        } else {
+//          Image(systemName: "chevron.down")
+//        }
       }.padding(Edge.Set.bottom, 10)
         .onTapGesture {
           calculatorShowing.toggle()
         }
 
       if calculatorShowing {
-        DateCalculator()
+        DateCalculator(startDate: selectedDate)
       }
     }.padding(Edge.Set.top, calculatorShowing ? 35 : 19)
       .padding(Edge.Set.bottom, calculatorShowing ? 35 : 10)
