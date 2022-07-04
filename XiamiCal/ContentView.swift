@@ -15,7 +15,7 @@ struct ContentView: View {
 
   @ObservedObject var state: ContentViewState
 
-  func initState(){
+  func initState() {
     state.calculatorShowing = false
     state.today = Date()
     state.displayDate = Date()
