@@ -15,6 +15,8 @@
 		22859F3E286D113A00F0031D /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F3D286D113A00F0031D /* CalendarHeader.swift */; };
 		22859F40286D1A1200F0031D /* Zodiacs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F3F286D1A1200F0031D /* Zodiacs.swift */; };
 		22859F42286D1CB600F0031D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F41286D1CB600F0031D /* CalendarView.swift */; };
+		22859F4428729B5300F0031D /* HolidayUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F4328729B5300F0031D /* HolidayUtils.swift */; };
+		22859F4628729BA700F0031D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F4528729BA700F0031D /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		22859F3D286D113A00F0031D /* CalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
 		22859F3F286D1A1200F0031D /* Zodiacs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zodiacs.swift; sourceTree = "<group>"; };
 		22859F41286D1CB600F0031D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		22859F4328729B5300F0031D /* HolidayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayUtils.swift; sourceTree = "<group>"; };
+		22859F4528729BA700F0031D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,8 @@
 				22859F41286D1CB600F0031D /* CalendarView.swift */,
 				2265294A286C17DC003895F2 /* ContentView.swift */,
 				22859F3B286C409500F0031D /* DateCalculator.swift */,
+				22859F4328729B5300F0031D /* HolidayUtils.swift */,
+				22859F4528729BA700F0031D /* Utils.swift */,
 				22859F3F286D1A1200F0031D /* Zodiacs.swift */,
 				2265294C286C17DE003895F2 /* Assets.xcassets */,
 				22652951286C17DE003895F2 /* XiamiCal.entitlements */,
@@ -156,9 +162,11 @@
 				22859F3C286C409500F0031D /* DateCalculator.swift in Sources */,
 				22859F40286D1A1200F0031D /* Zodiacs.swift in Sources */,
 				22859F42286D1CB600F0031D /* CalendarView.swift in Sources */,
+				22859F4428729B5300F0031D /* HolidayUtils.swift in Sources */,
 				2265294B286C17DC003895F2 /* ContentView.swift in Sources */,
 				22859F3E286D113A00F0031D /* CalendarHeader.swift in Sources */,
 				22652949286C17DC003895F2 /* XiamiCalApp.swift in Sources */,
+				22859F4628729BA700F0031D /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
