@@ -58,26 +58,25 @@ struct ContentView: View {
       
       Divider()
 
-      ZStack {
-        HStack{
-          Label("日期计算", systemImage: state.calculatorShowing ? "chevron.up" : "chevron.down")
-            .labelStyle(.titleAndIcon)
-
-        }.padding(Edge.Set.bottom, 10)
+      HStack {
+        Label("Date calculator", systemImage: "wand.and.stars")
+          .labelStyle(.iconOnly)
+          .help("日期计算器")
           .onTapGesture {
             state.calculatorShowing.toggle()
           }
 
-        Label("关闭", systemImage: "power")
+        Label("Terminate", systemImage: "power")
           .labelStyle(.iconOnly)
           .help("关闭")
-          .frame(maxWidth: .infinity, alignment: Alignment.trailing)
-          .padding(.bottom, 10)
-          .padding(.trailing, 10)
           .onTapGesture {
             exit(0)
           }
-      }
+
+      }.padding(Edge.Set.bottom, 10)
+        .frame(maxWidth: .infinity, alignment: .trailing)
+        .padding(.trailing, 10)
+        .padding(.top, 3)
 
       if state.calculatorShowing {
         DateCalculator(startDate: state.selectedDate)
