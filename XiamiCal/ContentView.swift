@@ -66,12 +66,17 @@ struct ContentView: View {
             state.calculatorShowing.toggle()
           }
 
-        Label("Terminate", systemImage: "power")
-          .labelStyle(.iconOnly)
-          .help("关闭")
-          .onTapGesture {
+        Menu {
+          Button("退出") {
             exit(0)
           }
+        } label: {
+          Label("Settings", systemImage: "gear")
+            .labelStyle(.iconOnly)
+        }
+        .frame(width: 20)
+        .menuStyle(.borderlessButton)
+        .menuIndicator(.hidden)
 
       }.padding(Edge.Set.bottom, 10)
         .frame(maxWidth: .infinity, alignment: .trailing)
