@@ -27,6 +27,7 @@ private let holidays2022 = [
   1108: "记者节"
 ]
 
+// See http://www.shijian.cc/116/jieri_2023/
 private let holidays2023 = [
   101: "元旦",
   201: "春节",
@@ -93,6 +94,11 @@ private let dayOffs2022 = [
   1009: "班",
 ]
 
+// See TBD
+private let dayOffs2023 = [
+  101: "休",
+]
+
 func getHolidayText(year: Int, month: Int, day: Int) -> String? {
   switch year {
   case 2022:
@@ -108,6 +114,8 @@ func getDayOffText(year: Int, month: Int, day: Int) -> String? {
   switch year {
   case 2022:
     return dayOffs2022[month * 100 + day]
+  case 2023:
+    return dayOffs2023[month * 100 + day]
   default:
     return nil
   }

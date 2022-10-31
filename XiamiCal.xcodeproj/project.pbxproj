@@ -31,7 +31,7 @@
 		22859F3D286D113A00F0031D /* CalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
 		22859F3F286D1A1200F0031D /* Zodiacs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zodiacs.swift; sourceTree = "<group>"; };
 		22859F41286D1CB600F0031D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		22859F4328729B5300F0031D /* HolidayUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayUtils.swift; sourceTree = "<group>"; };
+		22859F4328729B5300F0031D /* HolidayUtils.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = HolidayUtils.swift; sourceTree = "<group>"; tabWidth = 2; };
 		22859F4528729BA700F0031D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +117,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					22652944286C17DC003895F2 = {
 						CreatedOnToolsVersion = 13.4;
@@ -206,6 +206,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -266,6 +267,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -296,6 +298,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"XiamiCal/Preview Content\"";
 				DEVELOPMENT_TEAM = 2TFL2R42N7;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -326,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"XiamiCal/Preview Content\"";
 				DEVELOPMENT_TEAM = 2TFL2R42N7;
 				ENABLE_HARDENED_RUNTIME = YES;
