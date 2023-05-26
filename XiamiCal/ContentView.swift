@@ -29,7 +29,7 @@ struct ContentView: View {
       ZStack(alignment: Alignment.center) {
         let displayYear = displayComps.year ?? 2022
 
-        ZodiacEmoji(displayYear: displayYear)
+        ZodiacEmoji(displayYear: displayYear).frame(width: 200, height: 200)
 
         VStack {
           TianganDizhi(displayYear: displayYear)
