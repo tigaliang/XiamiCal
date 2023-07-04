@@ -4,7 +4,6 @@
 import SwiftUI
 
 class ContentViewState: ObservableObject {
-  @Published var calculatorShowing = false
   @Published var today = Date()
   @Published var displayDate = Date()
   @Published var selectedDate = Date()
@@ -16,7 +15,6 @@ struct ContentView: View {
   @ObservedObject var state: ContentViewState
 
   func initState() {
-    state.calculatorShowing = false
     state.today = Date()
     state.displayDate = Date()
     state.selectedDate = Date()
@@ -59,13 +57,6 @@ struct ContentView: View {
       Divider()
 
       HStack {
-        Label("Date calculator", systemImage: "wand.and.stars")
-          .labelStyle(.iconOnly)
-          .help("日期计算器")
-          .onTapGesture {
-            state.calculatorShowing.toggle()
-          }
-
         Menu {
           Button("退出") {
             exit(0)
@@ -82,12 +73,8 @@ struct ContentView: View {
         .frame(maxWidth: .infinity, alignment: .trailing)
         .padding(.trailing, 10)
         .padding(.top, 3)
-
-      if state.calculatorShowing {
-        DateCalculator(startDate: state.selectedDate)
-      }
-    }.padding(Edge.Set.top, state.calculatorShowing ? 35 : 19)
-      .padding(Edge.Set.bottom, state.calculatorShowing ? 35 : 10)
+    }.padding(Edge.Set.top, 20)
+      .padding(Edge.Set.bottom, 10)
   }
 }
 

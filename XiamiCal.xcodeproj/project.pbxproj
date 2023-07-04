@@ -11,7 +11,6 @@
 		2265294B286C17DC003895F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265294A286C17DC003895F2 /* ContentView.swift */; };
 		2265294D286C17DE003895F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2265294C286C17DE003895F2 /* Assets.xcassets */; };
 		22652950286C17DE003895F2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2265294F286C17DE003895F2 /* Preview Assets.xcassets */; };
-		22859F3C286C409500F0031D /* DateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F3B286C409500F0031D /* DateCalculator.swift */; };
 		22859F3E286D113A00F0031D /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F3D286D113A00F0031D /* CalendarHeader.swift */; };
 		22859F40286D1A1200F0031D /* Zodiacs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F3F286D1A1200F0031D /* Zodiacs.swift */; };
 		22859F42286D1CB600F0031D /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22859F41286D1CB600F0031D /* CalendarView.swift */; };
@@ -27,7 +26,6 @@
 		2265294F286C17DE003895F2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		22652951286C17DE003895F2 /* XiamiCal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XiamiCal.entitlements; sourceTree = "<group>"; };
 		22652957286C1839003895F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		22859F3B286C409500F0031D /* DateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCalculator.swift; sourceTree = "<group>"; };
 		22859F3D286D113A00F0031D /* CalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
 		22859F3F286D1A1200F0031D /* Zodiacs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zodiacs.swift; sourceTree = "<group>"; };
 		22859F41286D1CB600F0031D /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 				22859F3D286D113A00F0031D /* CalendarHeader.swift */,
 				22859F41286D1CB600F0031D /* CalendarView.swift */,
 				2265294A286C17DC003895F2 /* ContentView.swift */,
-				22859F3B286C409500F0031D /* DateCalculator.swift */,
 				22859F4328729B5300F0031D /* HolidayUtils.swift */,
 				22859F4528729BA700F0031D /* Utils.swift */,
 				22859F3F286D1A1200F0031D /* Zodiacs.swift */,
@@ -159,7 +156,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22859F3C286C409500F0031D /* DateCalculator.swift in Sources */,
 				22859F40286D1A1200F0031D /* Zodiacs.swift in Sources */,
 				22859F42286D1CB600F0031D /* CalendarView.swift in Sources */,
 				22859F4428729B5300F0031D /* HolidayUtils.swift in Sources */,
@@ -297,7 +293,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"XiamiCal/Preview Content\"";
 				DEVELOPMENT_TEAM = 2TFL2R42N7;
@@ -311,7 +307,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = win.tigaliang.XiamiCal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -328,7 +324,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"XiamiCal/Preview Content\"";
 				DEVELOPMENT_TEAM = 2TFL2R42N7;
@@ -342,7 +338,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = win.tigaliang.XiamiCal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
