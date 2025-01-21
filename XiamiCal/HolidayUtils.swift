@@ -192,6 +192,43 @@ private let dayOffs2024 = [
   1012: "班"
 ]
 
+// https://www.gov.cn/gongbao/2024/issue_11726/202411/content_6989767.html
+private let dayOffs2025 = [
+    101: "休",  // New Year's Day (Wednesday)
+    126: "班",  // Work on Sunday
+    128: "休",  // Spring Festival Eve
+    129: "休",
+    130: "休",
+    131: "休",
+    201: "休",
+    202: "休",
+    203: "休",
+    204: "休",
+    208: "班",  // Work on Saturday
+    404: "休",  // Qingming Festival
+    405: "休",
+    406: "休",
+    427: "班",  // Work on Sunday
+    501: "休",  // Labor Day
+    502: "休",
+    503: "休",
+    504: "休",
+    505: "休",
+    531: "休",  // Dragon Boat Festival
+    601: "休",
+    602: "休",
+    928: "班",  // Work on Sunday
+    1001: "休", // National Day & Mid-Autumn Festival combined
+    1002: "休",
+    1003: "休",
+    1004: "休",
+    1005: "休",
+    1006: "休",
+    1007: "休",
+    1008: "休",
+    1011: "班"  // Work on Saturday
+]
+
 func getHolidayText(year: Int, month: Int, day: Int) -> String? {
   switch year {
   case 2022:
@@ -213,6 +250,8 @@ func getDayOffText(year: Int, month: Int, day: Int) -> String? {
     return dayOffs2023[month * 100 + day]
   case 2024:
     return dayOffs2024[month * 100 + day]
+  case 2025:
+    return dayOffs2025[month * 100 + day]
   default:
     return nil
   }
