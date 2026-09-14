@@ -4,150 +4,119 @@
 import SwiftUI
 
 struct CalendarView: View {
-  private let lunarMonths = [
-    "正月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"
-  ]
-  private let lunarDays = [
-    "初一", "初二", "初三", "初四", "初五", "初六",
-    "初七", "初八", "初九", "初十", "十一", "十二",
-    "十三", "十四", "十五", "十六", " 十七", "十八",
-    "十九", "二十", "廿一", "廿二", "廿三", "廿四",
-    "廿五", "廿六", "廿七", "廿八", "廿九", "三十"
-  ]
+  let today: Date
+  let selectedDate: Date
+  let displayDate: Date
+  let onDaySelected: (Date) -> Void
 
-  let today: Date!
-  let selectedDate: Date!
-  let displayDate: Date!
-  let onDaySelected: ((Date) -> Void)!
-
-  private func displayDateComponents() -> [DateComponents] {
-    let calendar = Calendar.current
-    let displayComps = calendar.dateComponents([.year, .month], from: displayDate)
-    let range = calendar.range(of: .day, in: .month, for: displayDate)!
-
-    var dateComps = [DateComponents]()
-    let firstDayOfMonth = calendar.date(
-      from: DateComponents(
-        year: displayComps.year,
-        month: displayComps.month,
-        day: 1
-      )
-    )!
-    let lastDayOfMonth = calendar.date(
-      from: DateComponents(
-        year: displayComps.year,
-        month: displayComps.month,
-        day: range.count
-      )
-    )!
-
-    for dayOffset in (0..<range.count) {
-      let date = calendar.date(byAdding: .day, value: dayOffset, to: firstDayOfMonth)!
-      dateComps.append(calendar.dateComponents([.year, .month, .day, .weekday], from: date))
-    }
-
-    let daysToInsert = (dateComps.first?.weekday ?? 1) - 1
-    if daysToInsert > 0 {
-      for dayOffset in (1...daysToInsert) {
-        let date = calendar.date(byAdding: .day, value: dayOffset * -1, to: firstDayOfMonth)!
-        dateComps.insert(calendar.dateComponents([.year, .month, .day, .weekday], from: date), at: 0)
-      }
-    }
-
-    let daysToAppend = 7 - (dateComps.last?.weekday ?? 7)
-    if daysToAppend > 0 {
-      for dayOffset in (1...daysToAppend) {
-        let date = calendar.date(byAdding: .day, value: dayOffset, to: lastDayOfMonth)!
-        dateComps.append(calendar.dateComponents([.year, .month, .day, .weekday], from: date))
-      }
-    }
-
-    return dateComps
-  }
-
-  private func lunarDateComponent(solarDateComp: DateComponents) -> DateComponents {
-    let calendar = Calendar.init(identifier: .chinese)
-    return calendar.dateComponents([.year, .month, .day], from: Calendar.current.date(from: solarDateComp) ?? Date())
-  }
-
-  private func gridHelpText(month: Int, day: Int, lunarMonth: Int, lunarDay: Int) -> String {
-    let solar = "阳历：\(month)月\(day)日"
-    let constellation = "星座：\(constellationForDate(month: month, day: day))"
-    let lunar = "农历：\(lunarMonths[lunarMonth - 1])\(lunarDays[lunarDay - 1])"
-
-    return "\(solar)\n\(constellation)\n\(lunar)"
-  }
+  @FocusState private var hasKeyboardFocus: Bool
+  private let columns = Array(repeating: GridItem(.flexible(), spacing: 3), count: 7)
 
   var body: some View {
-    VStack {
-      HStack{
-        ForEach(["日", "一", "二", "三", "四", "五", "六"], id: \.self) { day in
-          Text(day).font(Font.body)
-            .bold()
-            .frame(width: 40, alignment: .center)
+    VStack(spacing: 10) {
+      HStack(spacing: 3) {
+        ForEach(Array(["日", "一", "二", "三", "四", "五", "六"].enumerated()), id: \.offset) { index, label in
+          Text(label)
+            .font(.system(size: 10, weight: .medium))
+            .foregroundStyle(index == 0 || index == 6 ? CalendarStyle.rest : .secondary)
+            .frame(maxWidth: .infinity)
         }
       }
+      .accessibilityHidden(true)
 
-      LazyVGrid(
-        columns: [GridItem](
-          repeating: GridItem(.fixed(44), alignment: Alignment.center),
-          count: 7
-        ),
-        spacing: 10
-      ) {
-        let displayDateComps = displayDateComponents()
-
-        ForEach(displayDateComps, id: \.self) { item in
-          let lunarComp = lunarDateComponent(solarDateComp: item)
-          let lunarDay = lunarComp.day ?? 1
-          let lunarMonth = lunarComp.month ?? 1
-
-          VStack {
-            ZStack {
-              if item.isSameDay(today) {
-                Circle()
-                  .frame(width: 25, height: 25, alignment: Alignment.center)
-                  .foregroundColor(Color.accentColor)
-              } else if item.isSameDay(selectedDate) {
-                Circle()
-                  .strokeBorder(Color.accentColor)
-                  .frame(width: 25, height: 25, alignment: Alignment.center)
-                  .foregroundColor(Color.accentColor)
-              } else {
-                Circle()
-                  .frame(width: 25, height: 25, alignment: Alignment.center)
-                  .hidden()
-              }
-              Text("\(item.day!)").font(Font.body)
-                .opacity(item.isSameMonth(displayDate) ? 1 : 0.3)
-            }
-
-            let holidayText = getHolidayText(year: item.year!, month: item.month!, day: item.day!)
-            let lunarText = lunarDay == 1 ? lunarMonths[lunarMonth - 1] : lunarDays[lunarDay - 1]
-            let dayOff = getDayOffText(year: item.year!, month: item.month!, day: item.day!)
-            let dayOffText = dayOff == nil ? "" : "(\(dayOff ?? ""))"
-            Text("\(holidayText ?? lunarText)\(dayOffText)")
-              .font(.system(size: 8))
-              .foregroundColor(Color.gray)
-              .padding(Edge.Set.top, -8)
-              .opacity(item.isSameMonth(displayDate) ? 1 : 0.3)
-          }.onTapGesture {
-            onDaySelected(Calendar.current.date(from: item) ?? today)
-          }.help(
-            gridHelpText(month: item.month!, day: item.day!, lunarMonth: lunarMonth, lunarDay: lunarDay)
-          )
+      LazyVGrid(columns: columns, spacing: 4) {
+        ForEach(CalendarData.days(in: displayDate), id: \.self) { date in
+          CalendarDayButton(
+            item: CalendarDay(date: date),
+            isToday: CalendarData.calendar.isDate(date, inSameDayAs: today),
+            isSelected: CalendarData.calendar.isDate(date, inSameDayAs: selectedDate),
+            hasKeyboardFocus: hasKeyboardFocus,
+            isDisplayedMonth: CalendarData.calendar.isDate(date, equalTo: displayDate, toGranularity: .month)
+          ) {
+            onDaySelected(date)
+            hasKeyboardFocus = true
+          }
         }
+      }
+    }
+    .focusable()
+    .focused($hasKeyboardFocus)
+    .calendarFocusAppearance()
+    .onMoveCommand { direction in
+      let offset: Int
+      switch direction {
+      case .left: offset = -1
+      case .right: offset = 1
+      case .up: offset = -7
+      case .down: offset = 7
+      default: return
+      }
+      if let date = CalendarData.calendar.date(byAdding: .day, value: offset, to: selectedDate) {
+        onDaySelected(date)
       }
     }
   }
 }
 
-struct CalendarView_Previews: PreviewProvider {
-  static var previews: some View {
-    CalendarView(
-      today: Date(),
-      selectedDate: Calendar.current.date(from: DateComponents(year: 2022, month: 6, day: 28)),
-      displayDate: Date()
-    ) { _ in }
+private struct CalendarDayButton: View {
+  let item: CalendarDay
+  let isToday: Bool
+  let isSelected: Bool
+  let hasKeyboardFocus: Bool
+  let isDisplayedMonth: Bool
+  let action: () -> Void
+
+  @Environment(\.accessibilityReduceMotion) private var reduceMotion
+  @Environment(\.colorSchemeContrast) private var contrast
+  @State private var isHovered = false
+
+  private var emphasis: Color { item.isRestDay ? CalendarStyle.rest : CalendarStyle.accent }
+
+  var body: some View {
+    Button(action: action) {
+      VStack(spacing: 4) {
+        Text("\(item.day)")
+          .font(.system(size: 15, weight: isToday || isSelected ? .bold : .medium, design: .rounded))
+          .foregroundStyle(isToday ? CalendarStyle.accent : .primary)
+          .overlay(alignment: .topTrailing) {
+            if let dayOff = item.dayOff {
+              Text(dayOff)
+                .font(.system(size: 7, weight: .bold))
+                .foregroundStyle(dayOff == "休" ? CalendarStyle.rest : CalendarStyle.accent)
+                .offset(x: 10, y: -3)
+            }
+          }
+        Text(item.subtitle)
+          .font(.system(size: 9, weight: item.holiday == nil ? .regular : .medium))
+          .lineLimit(1)
+          .minimumScaleFactor(0.7)
+          .foregroundStyle(item.holiday == nil ? Color.secondary : emphasis)
+      }
+      .frame(maxWidth: .infinity)
+      .frame(height: 46)
+      .background {
+        RoundedRectangle(cornerRadius: 13, style: .continuous)
+          .fill(isSelected ? CalendarStyle.accent.opacity(0.15) : (isHovered ? Color.primary.opacity(0.06) : .clear))
+      }
+      .overlay {
+        RoundedRectangle(cornerRadius: 13, style: .continuous)
+          .strokeBorder(isSelected ? CalendarStyle.accent.opacity(contrast == .increased || hasKeyboardFocus ? 1 : 0.4) : .clear, lineWidth: hasKeyboardFocus ? 1.5 : 1)
+      }
+      .overlay(alignment: .bottom) {
+        if isToday {
+          Circle().fill(CalendarStyle.accent).frame(width: 3, height: 3).offset(y: -2)
+        }
+      }
+      .opacity(isDisplayedMonth ? 1 : (contrast == .increased ? 0.7 : 0.4))
+      .contentShape(RoundedRectangle(cornerRadius: 13))
+    }
+    .buttonStyle(CalendarControlStyle())
+    .onHover { isHovered = $0 }
+    .animation(reduceMotion ? nil : .easeOut(duration: 0.14), value: isHovered)
+    .accessibilityLabel(item.accessibilityText + (isToday ? "，今天" : ""))
+    .accessibilityAddTraits(.isButton)
+    .accessibilityAddTraits(isSelected ? .isSelected : [])
+    .accessibilityIdentifier("day-\(item.year)-\(item.month)-\(item.day)")
+    .help(item.accessibilityText)
   }
 }

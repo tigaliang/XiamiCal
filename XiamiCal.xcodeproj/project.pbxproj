@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A02600000000000000000001 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02600000000000000000002 /* CalendarData.swift */; };
+		A02600000000000000000003 /* GlassStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02600000000000000000004 /* GlassStyle.swift */; };
 		22652949286C17DC003895F2 /* XiamiCalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22652948286C17DC003895F2 /* XiamiCalApp.swift */; };
 		2265294B286C17DC003895F2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265294A286C17DC003895F2 /* ContentView.swift */; };
 		2265294D286C17DE003895F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2265294C286C17DE003895F2 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A02600000000000000000002 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
+		A02600000000000000000004 /* GlassStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassStyle.swift; sourceTree = "<group>"; };
 		22652945286C17DC003895F2 /* XiamiCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XiamiCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22652948286C17DC003895F2 /* XiamiCalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XiamiCalApp.swift; sourceTree = "<group>"; };
 		2265294A286C17DC003895F2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 		22652947286C17DC003895F2 /* XiamiCal */ = {
 			isa = PBXGroup;
 			children = (
+				A02600000000000000000002 /* CalendarData.swift */,
+				A02600000000000000000004 /* GlassStyle.swift */,
 				22652957286C1839003895F2 /* Info.plist */,
 				22652948286C17DC003895F2 /* XiamiCalApp.swift */,
 				22859F3D286D113A00F0031D /* CalendarHeader.swift */,
@@ -156,6 +162,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02600000000000000000001 /* CalendarData.swift in Sources */,
+				A02600000000000000000003 /* GlassStyle.swift in Sources */,
 				22859F40286D1A1200F0031D /* Zodiacs.swift in Sources */,
 				22859F42286D1CB600F0031D /* CalendarView.swift in Sources */,
 				22859F4428729B5300F0031D /* HolidayUtils.swift in Sources */,
@@ -295,7 +303,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"XiamiCal/Preview Content\"";
 				DEVELOPMENT_TEAM = 2TFL2R42N7;
@@ -309,7 +317,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = win.tigaliang.XiamiCal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -326,7 +334,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"XiamiCal/Preview Content\"";
 				DEVELOPMENT_TEAM = 2TFL2R42N7;
@@ -340,7 +348,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = win.tigaliang.XiamiCal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

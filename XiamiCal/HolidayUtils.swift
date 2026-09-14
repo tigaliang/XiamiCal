@@ -72,6 +72,27 @@ private let holidays2024 = [
   1011: "重阳节"
 ]
 
+// Lunar dates and Qingming: https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt
+private let holidays2026 = [
+  101: "元旦",
+  217: "春节",
+  303: "元宵节",
+  308: "妇女节",
+  312: "植树节",
+  405: "清明节",
+  501: "劳动节",
+  504: "青年节",
+  601: "儿童节",
+  619: "端午节",
+  701: "建党节",
+  801: "建军节",
+  819: "七夕节",
+  910: "教师节",
+  925: "中秋节",
+  1001: "国庆节",
+  1018: "重阳节"
+]
+
 // See http://www.gov.cn/zhengce/content/2021-10/25/content_5644835.htm
 private let dayOffs2022 = [
   101: "休",
@@ -229,6 +250,49 @@ private let dayOffs2025 = [
     1011: "班"  // Work on Saturday
 ]
 
+// http://www.scio.gov.cn/zdgz/jj/202511/t20251110_938367.html
+private let dayOffs2026 = [
+  101: "休",
+  102: "休",
+  103: "休",
+  104: "班",
+  214: "班",
+  215: "休",
+  216: "休",
+  217: "休",
+  218: "休",
+  219: "休",
+  220: "休",
+  221: "休",
+  222: "休",
+  223: "休",
+  228: "班",
+  404: "休",
+  405: "休",
+  406: "休",
+  501: "休",
+  502: "休",
+  503: "休",
+  504: "休",
+  505: "休",
+  509: "班",
+  619: "休",
+  620: "休",
+  621: "休",
+  920: "班",
+  925: "休",
+  926: "休",
+  927: "休",
+  1001: "休",
+  1002: "休",
+  1003: "休",
+  1004: "休",
+  1005: "休",
+  1006: "休",
+  1007: "休",
+  1010: "班"
+]
+
 func getHolidayText(year: Int, month: Int, day: Int) -> String? {
   switch year {
   case 2022:
@@ -237,6 +301,8 @@ func getHolidayText(year: Int, month: Int, day: Int) -> String? {
     return holidays2023[month * 100 + day]
   case 2024:
     return holidays2024[month * 100 + day]
+  case 2026:
+    return holidays2026[month * 100 + day]
   default:
     return nil
   }
@@ -252,6 +318,8 @@ func getDayOffText(year: Int, month: Int, day: Int) -> String? {
     return dayOffs2024[month * 100 + day]
   case 2025:
     return dayOffs2025[month * 100 + day]
+  case 2026:
+    return dayOffs2026[month * 100 + day]
   default:
     return nil
   }
