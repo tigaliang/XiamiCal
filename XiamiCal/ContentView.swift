@@ -42,6 +42,8 @@ class ContentViewState: ObservableObject {
 
 struct ContentView: View {
   @ObservedObject var state: ContentViewState
+  var onOpenSettings: () -> Void = {}
+  var onShowHolidayData: (Int) -> Void = { _ in }
   @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
   private var selection: CalendarDay { CalendarDay(date: state.selectedDate) }
@@ -85,6 +87,21 @@ struct ContentView: View {
         onMonthAdded: { offset in update { state.moveMonth(offset) } }
       )
 
+      Button {
+        onShowHolidayData(CalendarDay(date: state.displayDate).year)
+      } label: {
+        HStack(spacing: 5) {
+          Image(systemName: "info.circle")
+          Text(HolidayScheduleSource.forYear(CalendarDay(date: state.displayDate).year) != nil
+               ? "中国大陆调休已收录 · 数据说明" : "本年调休暂未收录 · 数据说明")
+        }
+        .font(.system(size: 10))
+        .foregroundStyle(.secondary)
+        .frame(maxWidth: .infinity, alignment: .leading)
+      }
+      .buttonStyle(.plain)
+      .padding(.vertical, -8)
+
       CalendarView(today: state.today, selectedDate: state.selectedDate, displayDate: state.displayDate) { date in
         update { state.select(date) }
       }
@@ -96,6 +113,15 @@ struct ContentView: View {
         legend("班", label: "调休", color: CalendarStyle.accent)
         Spacer()
         Menu {
+          Button("设置…", action: onOpenSettings)
+            .keyboardShortcut(",", modifiers: .command)
+          Button("使用帮助") { NSWorkspace.shared.open(ProductLinks.help) }
+          Button("反馈问题") { NSWorkspace.shared.open(ProductLinks.feedback) }
+          Button("复制下载链接") {
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(ProductLinks.download.absoluteString, forType: .string)
+          }
+          Divider()
           Button("回到今天") { state.returnToToday() }
             .keyboardShortcut("t", modifiers: .command)
           Divider()

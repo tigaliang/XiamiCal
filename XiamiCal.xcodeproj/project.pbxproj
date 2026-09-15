@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A02700000000000000000009 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A0270000000000000000000A /* Localizable.xcstrings */; };
+		A02700000000000000000007 /* AppPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02700000000000000000008 /* AppPreferences.swift */; };
+		A02700000000000000000005 /* CalendarFestival.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02700000000000000000006 /* CalendarFestival.swift */; };
 		A02600000000000000000001 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02600000000000000000002 /* CalendarData.swift */; };
 		A02600000000000000000003 /* GlassStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02600000000000000000004 /* GlassStyle.swift */; };
 		22652949286C17DC003895F2 /* XiamiCalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22652948286C17DC003895F2 /* XiamiCalApp.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0270000000000000000000A /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		A02700000000000000000008 /* AppPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPreferences.swift; sourceTree = "<group>"; };
+		A02700000000000000000006 /* CalendarFestival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFestival.swift; sourceTree = "<group>"; };
 		A02600000000000000000002 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		A02600000000000000000004 /* GlassStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassStyle.swift; sourceTree = "<group>"; };
 		22652945286C17DC003895F2 /* XiamiCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XiamiCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +74,9 @@
 			isa = PBXGroup;
 			children = (
 				A02600000000000000000002 /* CalendarData.swift */,
+				A0270000000000000000000A /* Localizable.xcstrings */,
+				A02700000000000000000008 /* AppPreferences.swift */,
+				A02700000000000000000006 /* CalendarFestival.swift */,
 				A02600000000000000000004 /* GlassStyle.swift */,
 				22652957286C1839003895F2 /* Info.plist */,
 				22652948286C17DC003895F2 /* XiamiCalApp.swift */,
@@ -129,10 +138,10 @@
 			};
 			buildConfigurationList = 22652940286C17DC003895F2 /* Build configuration list for PBXProject "XiamiCal" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = en;
+			developmentRegion = "zh-Hans";
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				"zh-Hans",
 				Base,
 			);
 			mainGroup = 2265293C286C17DC003895F2;
@@ -152,6 +161,7 @@
 			files = (
 				22652950286C17DE003895F2 /* Preview Assets.xcassets in Resources */,
 				2265294D286C17DE003895F2 /* Assets.xcassets in Resources */,
+				A02700000000000000000009 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +173,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A02600000000000000000001 /* CalendarData.swift in Sources */,
+				A02700000000000000000007 /* AppPreferences.swift in Sources */,
+				A02700000000000000000005 /* CalendarFestival.swift in Sources */,
 				A02600000000000000000003 /* GlassStyle.swift in Sources */,
 				22859F40286D1A1200F0031D /* Zodiacs.swift in Sources */,
 				22859F42286D1CB600F0031D /* CalendarView.swift in Sources */,
@@ -303,7 +315,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"XiamiCal/Preview Content\"";
 				DEVELOPMENT_TEAM = 2TFL2R42N7;
@@ -312,12 +324,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XiamiCal/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "©️Tiga Liang 2022";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Tiga Liang";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = win.tigaliang.XiamiCal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -334,7 +346,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"XiamiCal/Preview Content\"";
 				DEVELOPMENT_TEAM = 2TFL2R42N7;
@@ -343,12 +355,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = XiamiCal/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "©️Tiga Liang 2022";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2026 Tiga Liang";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = win.tigaliang.XiamiCal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

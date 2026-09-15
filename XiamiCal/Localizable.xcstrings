@@ -1,0 +1,326 @@
+{
+  "sourceLanguage": "zh-Hans",
+  "strings": {
+    "上一年": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上一年"
+          }
+        }
+      }
+    },
+    "上个月": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上个月"
+          }
+        }
+      }
+    },
+    "下个月": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下个月"
+          }
+        }
+      }
+    },
+    "下一年": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下一年"
+          }
+        }
+      }
+    },
+    "虾米日历设置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "虾米日历设置"
+          }
+        }
+      }
+    },
+    "随手查农历、放假和补班": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "随手查农历、放假和补班"
+          }
+        }
+      }
+    },
+    "菜单栏显示日期与星期": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "菜单栏显示日期与星期"
+          }
+        }
+      }
+    },
+    "关闭时只显示图标，适合菜单栏空间较少的 Mac。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关闭时只显示图标，适合菜单栏空间较少的 Mac。"
+          }
+        }
+      }
+    },
+    "登录 Mac 时启动": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "登录 Mac 时启动"
+          }
+        }
+      }
+    },
+    "登录后静默出现在菜单栏，点一下即可查看日历。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "登录后静默出现在菜单栏，点一下即可查看日历。"
+          }
+        }
+      }
+    },
+    "请在系统设置中允许虾米日历登录时启动。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请在系统设置中允许虾米日历登录时启动。"
+          }
+        }
+      }
+    },
+    "打开登录项设置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开登录项设置"
+          }
+        }
+      }
+    },
+    "macOS 12：打开系统偏好设置 → 用户与群组 → 登录项，点击“+”添加虾米日历。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS 12：打开系统偏好设置 → 用户与群组 → 登录项，点击“+”添加虾米日历。"
+          }
+        }
+      }
+    },
+    "打开系统偏好设置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开系统偏好设置"
+          }
+        }
+      }
+    },
+    "应用不收集使用数据。公历与农历离线可查；中国大陆放假调休安排已收录 2022–2026 年，其他年份会明确提示。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用不收集使用数据。公历与农历离线可查；中国大陆放假调休安排已收录 2022–2026 年，其他年份会明确提示。"
+          }
+        }
+      }
+    },
+    "使用帮助": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用帮助"
+          }
+        }
+      }
+    },
+    "反馈问题": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "反馈问题"
+          }
+        }
+      }
+    },
+    "假期数据说明": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "假期数据说明"
+          }
+        }
+      }
+    },
+    "未收录不代表官方尚未公布，也不能据此判断某天上班或放假。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未收录不代表官方尚未公布，也不能据此判断某天上班或放假。"
+          }
+        }
+      }
+    },
+    "“休”“班”来自国务院办公厅年度安排；周末颜色仅用于区分星期。实际工作安排请以所在单位通知为准。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "“休”“班”来自国务院办公厅年度安排；周末颜色仅用于区分星期。实际工作安排请以所在单位通知为准。"
+          }
+        }
+      }
+    },
+    "公历固定节日和农历传统节日独立计算，闰月不重复标记传统节日。清明日期已收录 2022–2026 年。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "公历固定节日和农历传统节日独立计算，闰月不重复标记传统节日。清明日期已收录 2022–2026 年。"
+          }
+        }
+      }
+    },
+    "放假调休数据通过应用更新补充，当前覆盖 2022–2026 年。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "放假调休数据通过应用更新补充，当前覆盖 2022–2026 年。"
+          }
+        }
+      }
+    },
+    "反馈日期问题": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "反馈日期问题"
+          }
+        }
+      }
+    },
+    "虾米日历": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "虾米日历"
+          }
+        }
+      }
+    },
+    "今天": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今天"
+          }
+        }
+      }
+    },
+    "回到今天": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回到今天"
+          }
+        }
+      }
+    },
+    "回到今天（⌘T）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回到今天（⌘T）"
+          }
+        }
+      }
+    },
+    "设置…": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置…"
+          }
+        }
+      }
+    },
+    "复制下载链接": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "复制下载链接"
+          }
+        }
+      }
+    },
+    "退出虾米日历": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "退出虾米日历"
+          }
+        }
+      }
+    },
+    "更多选项": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更多选项"
+          }
+        }
+      }
+    },
+    "所选日期，": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "所选日期，"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

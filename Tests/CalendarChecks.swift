@@ -49,6 +49,41 @@ struct CalendarChecks {
     expect(!CalendarDay(date: date(2026, 9, 20)).isRestDay, "Makeup work overrides weekend")
     expect(CalendarDay(date: date(2026, 10, 1)).isRestDay, "Weekday public holiday overrides workday")
 
+    let festivalFixtures: [(Int, Int, Int, String)] = [
+      (2022, 6, 3, "端午节"), (2022, 8, 4, "七夕节"),
+      (2022, 9, 10, "教师节\n中秋节"), (2023, 8, 22, "七夕节"),
+      (2023, 9, 10, "教师节"), (2023, 9, 29, "中秋节"),
+      (2025, 1, 29, "春节"), (2025, 5, 31, "端午节"),
+      (2025, 10, 6, "中秋节"), (2027, 1, 1, "元旦"),
+      (2020, 10, 1, "国庆节\n中秋节"),
+      (2022, 4, 5, "清明节"), (2023, 4, 5, "清明节"),
+      (2024, 4, 4, "清明节"), (2025, 4, 4, "清明节"), (2026, 4, 5, "清明节")
+    ]
+    for zone in ["Asia/Shanghai", "America/Los_Angeles"] {
+      var calendar = Calendar(identifier: .gregorian)
+      calendar.timeZone = TimeZone(identifier: zone)!
+      for (year, month, day, expected) in festivalFixtures {
+        expect(CalendarDay(date: date(year, month, day, calendar: calendar), calendar: calendar).holiday == expected,
+               "Festival regression: \(year)-\(month)-\(day) in \(zone)")
+      }
+    }
+    expect(getHolidayText(year: 2022, month: 6, day: 22) == nil, "Remove misplaced Dragon Boat Festival")
+    expect(getHolidayText(year: 2023, month: 8, day: 4) == nil, "Remove misplaced Qixi festival")
+    expect(getHolidayText(year: 2026, month: 2, day: 30) == nil, "Reject normalized invalid dates")
+    expect(CalendarFestival.name(year: 2009, month: 6, day: 27, lunarMonth: 5, lunarDay: 5, isLeapMonth: true) == nil,
+           "Do not repeat traditional festivals in leap lunar months")
+    let unknown = CalendarDay(date: date(2027, 1, 1))
+    expect(!unknown.hasHolidaySchedule && unknown.dayOff == nil, "Do not invent next year's holiday schedule")
+    expect(unknown.workStatus == "调休安排未收录", "Unknown schedule is not a workday")
+    expect(unknown.accessibilityText.contains("调休安排未收录"), "VoiceOver must disclose missing schedule")
+    expect(CalendarDay(date: date(2027, 1, 2)).workStatus == "调休安排未收录", "Unknown weekends do not imply official days off")
+    expect(CalendarDay(date: date(2020, 10, 1)).workStatus == "调休安排未收录", "Festival names cannot imply statutory leave")
+    expect(CalendarDay(date: date(2026, 9, 15)).menuBarText == "15 周二", "Compact menu bar date")
+    expect(CalendarDay(date: date(2026, 9, 16)).menuBarText == "16 周三", "Menu bar date follows midnight")
+    expect(CalendarDay(date: date(2026, 10, 10)).workStatus == "调休上班", "Saturday makeup workday")
+    expect(getDayOffText(year: 2024, month: 6, day: 8) == "休", "Dragon Boat weekend has official rest markers")
+    expect(getDayOffText(year: 2023, month: 12, day: 30) == "休", "New Year rest period crosses Gregorian years")
+
     let state = ContentViewState(now: date(2026, 9, 14))
     state.select(date(2026, 10, 1))
     expect(CalendarDay(date: state.displayDate).month == 10, "Selecting a trailing day must open its month")

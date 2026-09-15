@@ -3,96 +3,6 @@
 
 import Foundation
 
-// See http://www.shijian.cc/116/jieri_2022/
-private let holidays2022 = [
-  101: "元旦",
-  201: "春节",
-  215: "元宵节",
-  304: "中和节",
-  308: "妇女节",
-  312: "植树节",
-  405: "清明节",
-  501: "劳动节",
-  504: "青年节",
-  601: "儿童节",
-  622: "端午节",
-  701: "建党节",
-  711: "航海日",
-  801: "建军节",
-  822: "七夕节",
-  830: "中元节",
-  910: "教师节",
-  929: "中秋节",
-  1001: "国庆节",
-  1023: "重阳节",
-  1108: "记者节"
-]
-
-// See http://www.shijian.cc/116/jieri_2023/
-private let holidays2023 = [
-  101: "元旦",
-  122: "春节",
-  205: "元宵节",
-  221: "中和节",
-  308: "妇女节",
-  312: "植树节",
-  405: "清明节",
-  501: "劳动节",
-  504: "青年节",
-  601: "儿童节",
-  622: "端午节",
-  701: "建党节",
-  711: "航海日",
-  801: "建军节",
-  804: "七夕节",
-  812: "中元节",
-  910: "教师节\n中秋节",
-  1001: "国庆节",
-  1004: "重阳节",
-  1108: "记者节"
-]
-
-private let holidays2024 = [
-  101: "元旦",
-  210: "春节",
-  224: "元宵节",
-  308: "妇女节",
-  312: "植树节",
-  404: "清明节",
-  501: "劳动节",
-  504: "青年节",
-  601: "儿童节",
-  610: "端午节",
-  701: "建党节",
-  801: "建军节",
-  810: "七夕节",
-  910: "教师节",
-  917: "中秋节",
-  1001: "国庆节",
-  1011: "重阳节"
-]
-
-// Lunar dates and Qingming: https://www.hko.gov.hk/en/gts/time/calendar/text/files/T2026e.txt
-private let holidays2026 = [
-  101: "元旦",
-  217: "春节",
-  303: "元宵节",
-  308: "妇女节",
-  312: "植树节",
-  405: "清明节",
-  501: "劳动节",
-  504: "青年节",
-  601: "儿童节",
-  619: "端午节",
-  701: "建党节",
-  801: "建军节",
-  819: "七夕节",
-  910: "教师节",
-  925: "中秋节",
-  1001: "国庆节",
-  1018: "重阳节"
-]
-
 // See http://www.gov.cn/zhengce/content/2021-10/25/content_5644835.htm
 private let dayOffs2022 = [
   101: "休",
@@ -171,6 +81,8 @@ private let dayOffs2023 = [
   1006: "休",
   1007: "班",
   1008: "班",
+  1230: "休",
+  1231: "休",
 ]
 
 // https://www.gov.cn/zhengce/content/202310/content_6911527.htm
@@ -210,6 +122,8 @@ private let dayOffs2024 = [
   1005: "休",
   1006: "休",
   1007: "休",
+  608: "休",
+  609: "休",
   1012: "班"
 ]
 
@@ -294,18 +208,12 @@ private let dayOffs2026 = [
 ]
 
 func getHolidayText(year: Int, month: Int, day: Int) -> String? {
-  switch year {
-  case 2022:
-    return holidays2022[month * 100 + day]
-  case 2023:
-    return holidays2023[month * 100 + day]
-  case 2024:
-    return holidays2024[month * 100 + day]
-  case 2026:
-    return holidays2026[month * 100 + day]
-  default:
-    return nil
-  }
+  var calendar = Calendar(identifier: .gregorian)
+  calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+  guard let date = calendar.date(from: DateComponents(year: year, month: month, day: day, hour: 12)) else { return nil }
+  let value = CalendarDay(date: date, calendar: calendar)
+  guard value.year == year, value.month == month, value.day == day else { return nil }
+  return value.holiday
 }
 
 func getDayOffText(year: Int, month: Int, day: Int) -> String? {

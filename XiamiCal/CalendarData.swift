@@ -34,16 +34,21 @@ struct CalendarDay: Identifiable {
   let lunarYear: Int
 
   var id: Date { date }
-  var holiday: String? { getHolidayText(year: year, month: month, day: day) }
+  var holiday: String? {
+    CalendarFestival.name(year: year, month: month, day: day, lunarMonth: lunarMonth,
+                          lunarDay: lunarDay, isLeapMonth: isLeapMonth)
+  }
+  var hasHolidaySchedule: Bool { HolidayScheduleSource.forYear(year) != nil }
   var dayOff: String? { getDayOffText(year: year, month: month, day: day) }
   var isWeekend: Bool { weekday == 1 || weekday == 7 }
   var isRestDay: Bool { dayOff == "休" || (dayOff != "班" && isWeekend) }
   var weekdayText: String { ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"][weekday - 1] }
   var dateText: String { "\(month)月\(day)日 · \(weekdayText)" }
+  var menuBarText: String { "\(day) 周" + ["日", "一", "二", "三", "四", "五", "六"][weekday - 1] }
   var workStatus: String {
+    guard hasHolidaySchedule else { return "调休安排未收录" }
     if dayOff == "班" { return "调休上班" }
     if dayOff == "休" { return "放假" }
-    // A missing annual schedule is not proof of a workday or a day off.
     return isWeekend ? "周末" : "工作日"
   }
 
@@ -61,7 +66,7 @@ struct CalendarDay: Identifiable {
     return "\(stems[(lunarYear - 1) % 10])\(branches[(lunarYear - 1) % 12])\(animals[(lunarYear - 1) % 12])年"
   }
   var accessibilityText: String {
-    ["\(year)年\(month)月\(day)日", weekdayText, "农历" + lunarText, holiday, dayOff == nil ? nil : workStatus]
+    ["\(year)年\(month)月\(day)日", weekdayText, "农历" + lunarText, holiday, workStatus]
       .compactMap { $0 }.joined(separator: "，")
   }
 

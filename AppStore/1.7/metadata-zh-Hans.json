@@ -1,0 +1,15 @@
+{
+  "version": "1.7",
+  "build": "10",
+  "locale": "zh-Hans",
+  "name": "虾米日历 - 菜单栏农历与调休",
+  "subtitle": "Mac 上随手查日期、放假与补班",
+  "promotionalText": "这周日要补班吗？在 Mac 菜单栏，随手查公历、农历、放假和补班。免费、无需登录，离线可用。已收录中国大陆 2026 年放假调休安排。",
+  "description": "这周日要补班吗？中秋是哪一天？点开 Mac 菜单栏里的虾米日历，公历、农历和中国大陆放假补班安排一起看。免费使用，无需登录，离线可用。\n\n【随手查日期】\n公历与农历同屏显示，支持按月、按年切换。选中一天即可查看传统节日、农历、生肖与星座。支持键盘操作，一键回到今天。\n\n【放假和补班，看清再安排】\n用「休」「班」标记中国大陆放假及补班日期，已收录 2022–2026 年官方安排。点击「数据说明」可查看来源；未收录年份会明确提示，不把缺少数据的日期误判为工作日或放假日。公历固定节日与农历传统节日独立计算，闰月不重复标记传统节日。清明日期已收录 2022–2026 年。\n\n【菜单栏也能显示日期】\n在设置中选择紧凑的日期与星期显示，或保留仅图标模式，让菜单栏适合自己的习惯。跨日和唤醒后自动刷新日期。\n\n【登录后，也随手可用】\nmacOS 13 及以上支持可选的「登录 Mac 时启动」，登录后静默出现在菜单栏。macOS 12 提供系统登录项设置指引。\n\n【轻盈而清楚】\n适配浅色与深色模式。macOS 26 使用原生 Liquid Glass 效果，较早系统使用材质界面。支持 VoiceOver，并适配减少动态效果和降低透明度设置。\n\n更多菜单提供使用帮助、问题反馈和复制下载链接。放假调休数据通过应用更新补充，实际工作安排以所在单位通知为准。\n\n需要 macOS 12.3 或更新版本，支持 Apple 芯片与 Intel Mac。",
+  "whatsNew": "- 修复历史节日错位及 2025 年节日名称缺失；公历固定节日与农历传统节日按规则计算。\n- 未收录年份明确提示调休数据范围，新增官方数据来源说明。\n- 新增菜单栏日期与星期显示，可在设置中切换为仅图标。\n- 新增登录 Mac 时启动选项（macOS 13 及以上），并为 macOS 12 提供设置指引。\n- 补齐简体中文语言资源，新增使用帮助、反馈和复制下载链接入口。",
+  "keywords": "状态栏,万年历,节假日,放假,补班,假期,公历,中国,传统节日,日期查询,XiamiCal",
+  "supportURL": "https://github.com/tigaliang/XiamiCal#readme",
+  "marketingURL": "https://github.com/tigaliang/XiamiCal",
+  "copyright": "© 2026 Tiga Liang",
+  "reviewNotes": "XiamiCal is a Chinese-language macOS menu bar calendar and does not require sign-in. Click the menu bar icon to open it. The More menu offers Settings, Help, Feedback, and Copy Download Link. In Settings, users can optionally show a compact date in the menu bar and enable Launch at Login on macOS 13 or later; macOS 12 shows instructions for System Preferences. Login-item launches are silent. Festival names are calculated independently of official mainland China rest/work schedules. Official schedules cover 2022–2026; other years explicitly show that schedule data is not included. Click the data information row to see coverage and official sources. This app does not collect usage data."
+}
